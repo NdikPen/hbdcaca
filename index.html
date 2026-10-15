@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#100923">
+
+<title>For Caca ♡ — Happy Birthday</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root{--pink:#ff6fae;--gold:#ffd783;--lilac:#c8aaff;--white:#fff8ff;--muted:#d2c5e6}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+
+body{margin:0;background:#100923;color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+
+body.locked{overflow:hidden}
+
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 15% 15%,#58245c 0,transparent 36%),radial-gradient(ellipse at 88% 70%,#242c69 0,transparent 42%),linear-gradient(140deg,#100923,#1b1040 58%,#10182f)}
+
+.bg:after{content:"";position:absolute;inset:0;opacity:.28;background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 90px 80px,#ffe6a8,transparent),radial-gradient(1px 1px at 150px 160px,#fff,transparent);background-size:210px 190px;animation:stars 5s ease-in-out infinite alternate}
+
+@keyframes stars{to{opacity:.75;transform:translateY(-7px)}}
+
+.screen{position:relative;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding:35px 18px}
+
+.wrap{width:min(820px,100%);text-align:center;padding:clamp(24px,5vw,54px);border:1px solid #ffffff27;border-radius:30px;background:linear-gradient(145deg,#ffffff12,#ffffff05);box-shadow:0 25px 90px #05031355,inset 0 1px 0 #ffffff1b;backdrop-filter:blur(14px);animation:floatin .8s ease both}
+
+@keyframes floatin{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+
+.kicker{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#f9cde7;font-weight:800}
+
+h1,h2{font-family:'Playfair Display',serif;letter-spacing:-.04em}
+
+h1{font-size:clamp(3.8rem,13vw,7.5rem);line-height:.95;margin:18px 0;background:linear-gradient(110deg,#fff 12%,#ffd783 42%,#ff78b5 70%,#c8aaff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+h2{font-size:clamp(2.2rem,7vw,4.2rem);line-height:1.05;margin:14px 0 22px}
+
+p{line-height:1.85;color:#e9def5}
+
+.big-emoji{font-size:clamp(3.6rem,10vw,6rem);display:block;filter:drop-shadow(0 0 22px #ff6fae55);animation:bob 3s ease-in-out infinite}
+
+@keyframes bob{50%{transform:translateY(-12px) rotate(3deg)}}
+
+.gradient-text{background:linear-gradient(100deg,#ffd783,#ff80b7,#c8aaff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.btn{font:800 .94rem 'DM Sans',sans-serif;border:0;border-radius:999px;padding:14px 22px;cursor:pointer;transition:transform .2s,box-shadow .2s;background:linear-gradient(110deg,#ffd783,#ff83b6);color:#24112f;box-shadow:0 10px 30px #ff6fae25;display:inline-flex;gap:9px;align-items:center;justify-content:center;text-decoration:none}
+
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 34px #ff6fae38}
+
+.btn.ghost{background:#ffffff10;color:white;border:1px solid #ffffff38;box-shadow:none}
+
+.btnrow{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+
+.small{font-size:.78rem;color:#bdb0d4}
+
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:#ffffff12;z-index:4}
+
+.progress span{display:block;width:20%;height:100%;background:linear-gradient(90deg,#ffd783,#ff6fae,#c8aaff);transition:width .4s}
+
+.step-tag{display:inline-block;border:1px solid #ffffff30;background:#ffffff0b;border-radius:99px;padding:8px 13px;font-size:.75rem;letter-spacing:.12em;color:#f5cbe8}
+
+.message{font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3.8vw,2rem);max-width:620px;margin:0 auto;color:#fff6fc;line-height:1.7}
+
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:600px;margin:24px auto 10px}
+
+.photo{margin:0;padding:7px 7px 11px;background:#ffffff12;border:1px solid #ffffff2c;border-radius:15px;transform:rotate(-2deg);transition:.25s}
+
+.photo:nth-child(2){transform:translateY(8px) rotate(2deg)}.photo:nth-child(3){transform:rotate(-1deg)}
+
+.photo:hover{transform:translateY(-5px) rotate(0) scale(1.02)}
+
+.photo img{width:100%;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:10px;background:#34264c}
+
+.photo figcaption{font: .75rem 'Playfair Display',serif;color:#ffe4f3;padding-top:8px}
+
+.modal{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:20px;background:#080516d9;backdrop-filter:blur(15px);opacity:1;visibility:visible;transition:opacity .4s,visibility .4s}
+
+.modal.hidden{opacity:0;visibility:hidden;pointer-events:none}
+
+.modal-card{width:min(490px,100%);text-align:center;padding:clamp(26px,6vw,44px) 25px;border-radius:28px;border:1px solid #ffffff32;background:linear-gradient(145deg,#39204fef,#17112ff5);box-shadow:0 30px 100px #0008;animation:pop .55s cubic-bezier(.2,.9,.25,1.2) both}
+
+@keyframes pop{from{transform:scale(.82) translateY(18px);opacity:0}to{transform:none;opacity:1}}
+
+.modal-card h2{font-size:clamp(2rem,8vw,3.1rem);margin:14px 0}
+
+.modal-card p{margin:0 auto 22px}
+
+.modal-icon{font-size:3.6rem;display:block;animation:bob 2.4s infinite}
+
+#musicToggle{position:fixed;right:16px;bottom:16px;z-index:5;width:48px;height:48px;border-radius:50%;border:1px solid #ffffff45;background:#2a1a48;color:#fff;font-size:1.1rem;display:none;cursor:pointer;box-shadow:0 8px 25px #0004}
+
+.final-card{border-color:#ffd78365;box-shadow:0 0 70px #ff6fae15,0 25px 90px #05031355}
+
+@media(max-width:500px){.wrap{border-radius:23px;padding:25px 17px}.gallery{gap:7px}.photo{padding:5px 5px 8px;border-radius:11px}.photo img{border-radius:7px}.photo figcaption{font-size:.61rem}.btn{width:100%}.btnrow{gap:9px}.screen{padding:18px 12px}}
+
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+
+</style>
+
+</head>
+
+<body class="locked">
+
+<div class="bg"></div><canvas id="fx"></canvas>
+
+<div class="progress"><span id="progressBar"></span></div>
+
+<button id="musicToggle" aria-label="Jeda atau putar musik">♫</button>
+<audio id="birthdayMusic" src="musik/malam.mp3" preload="auto" loop></audio>
+
+
+
+<section class="screen" id="step1">
+
+ <div class="wrap">
+
+  <span class="kicker">a little surprise for you</span>
+
+  <span class="big-emoji">🎂</span>
+
+  <h1>Happy<br>Birthday<br><span style="font-size:.58em">Caca!</span></h1>
+
+  <p>Hari spesialmu harus dimulai dengan sesuatu yang manis. Siap buat kejutan kecil? ✨</p>
+
+  <div class="btnrow"><button class="btn next" data-next="step2">Buka kejutan <span>↓</span></button></div>
+
+  <p class="small">01 / 05 · made with love ♡</p>
+
+ </div>
+
+</section>
+
+
+
+<section class="screen" id="step2">
+
+ <div class="wrap">
+
+  <span class="step-tag">02 / A LITTLE WISH</span>
+
+  <span class="big-emoji">🌷</span>
+
+  <h2>Untuk <span class="gradient-text">Caca</span></h2>
+
+  <p class="message">Semoga di umur yang baru ini, kamu selalu punya alasan buat tersenyum—bahkan di hari yang terasa berat.</p>
+
+  <div class="btnrow"><button class="btn next" data-next="step3">Lanjut baca <span>↓</span></button></div>
+
+ </div>
+
+</section>
+
+
+
+<section class="screen" id="step3">
+
+ <div class="wrap">
+
+  <span class="step-tag">03 / MAY YOUR DREAMS GLOW</span>
+
+  <span class="big-emoji">✨</span>
+
+  <h2>Mimpi yang <span class="gradient-text">indah</span></h2>
+
+  <p class="message">Semoga satu per satu hal yang kamu impikan menemukan jalannya. Semoga usaha kecilmu berbuah bahagia yang besar.</p>
+
+  <div class="btnrow"><button class="btn next" data-next="step4">Masih ada lagi <span>↓</span></button></div>
+
+ </div>
+
+</section>
+
+
+
+<section class="screen" id="step4">
+
+ <div class="wrap">
+
+  <span class="step-tag">04 / LITTLE MOMENTS</span>
+
+  <h2>Potongan momen <span class="gradient-text">Caca</span></h2>
+
+  <p>Untuk sementara, ini tiga foto contoh. Nanti bisa diganti dengan foto Caca yang asli. 💗</p>
+
+
+
+<div class="gallery">
+
+  <figure class="photo">
+
+    <img src="img/img1.jpg" alt="Foto Caca 1">
+
+    <figcaption>Lucu tapi tangannya ♡</figcaption>
+
+  </figure>
+
+
+
+  <figure class="photo">
+
+    <img src="img/img2.jpg" alt="Foto Caca 2">
+
+    <figcaption>sweet memories ✨</figcaption>
+
+  </figure>
+
+
+
+  <figure class="photo">
+
+    <img src="img/img3.jpg" alt="Foto Caca 3">
+
+    <figcaption>keep shining 💗</figcaption>
+
+  </figure>
+
+</div>
+
+
+
+  <div class="btnrow"><button class="btn next" data-next="step5">Satu pesan terakhir <span>↓</span></button></div>
+
+ </div>
+
+</section>
+
+
+
+<section class="screen" id="step5">
+
+ <div class="wrap final-card">
+
+  <span class="step-tag">05 / FROM THE HEART</span>
+
+  <span class="big-emoji">💖</span>
+
+  <h2>Be happy, <span class="gradient-text">Caca!</span></h2>
+
+  <p class="message">Tetap jadi Caca yang istimewa dengan caramu sendiri. Semoga kamu dikelilingi orang-orang tulus, cinta yang baik, dan banyak cerita yang layak dikenang. Selamat ulang tahun! 🎆</p>
+
+  <div class="btnrow"><button class="btn" id="finalOpen">Ada satu kejutan lagi 💌</button></div>
+
+  <p class="small">the world is brighter with you in it ♡</p>
+
+ </div>
+
+</section>
+
+
+
+<div class="modal" id="startModal">
+
+ <div class="modal-card">
+
+  <span class="modal-icon">🎁</span>
+
+  <span class="kicker">psst... this is for you</span>
+
+  <h2>Hai, <span class="gradient-text">Caca!</span></h2>
+
+  <p>Ada ucapan kecil yang disiapkan khusus buat kamu. Nyalakan musiknya, tarik napas, dan nikmati kejutan ini sampai akhir. 🎶</p>
+
+  <button class="btn" id="startBtn">♫ Putar musik & mulai</button>
+
+  <p class="small" style="margin-top:13px">Pakai volume yang nyaman ya ✨</p>
+
+ </div>
+
+</div>
+
+
+
+<div class="modal hidden" id="finalModal">
+
+ <div class="modal-card">
+
+  <span class="modal-icon">💌</span>
+
+  <span class="kicker">one last thing</span>
+
+  <h2>Kiriman kecil <span class="gradient-text">untuk Caca</span></h2>
+
+  <p>lanjutkan kejutan ini lewat WhatsApp</p>
+
+  <a class="btn" id="whatsappLink" href="https://wa.me/6285755024566?text=TERIMA%KASIH%YA%FENDI%HEHEHE" target="_blank" rel="noopener noreferrer">Buka WhatsApp ↗</a>
+
+  <div class="btnrow"><button class="btn ghost" id="closeFinal">Kembali ke ucapan</button></div>
+
+ </div>
+
+</div>
+
+
+
+<script>
+
+const canvas=document.getElementById('fx'),ctx=canvas.getContext('2d');let W,H,particles=[],rockets=[],last=0;
+
+function resize(){W=innerWidth;H=innerHeight;canvas.width=W*devicePixelRatio;canvas.height=H*devicePixelRatio;canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}addEventListener('resize',resize);resize();
+
+const colors=['#ff6fae','#ffd783','#c8aaff','#7cf7e8','#fff8ff','#ff956d'];
+
+function burst(x,y){for(let i=0;i<90;i++){const a=Math.random()*Math.PI*2,s=1.2+Math.random()*5;particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:50+Math.random()*40,max:90,r:1+Math.random()*2.3,c:colors[Math.floor(Math.random()*colors.length)]})}}
+
+function launch(){rockets.push({x:W*(.1+Math.random()*.8),y:H+5,tx:W*(.1+Math.random()*.8),ty:H*(.12+Math.random()*.42),s:5+Math.random()*3,c:colors[Math.floor(Math.random()*colors.length)]})}
+
+function animate(t){ctx.clearRect(0,0,W,H);if(t-last>700){if(Math.random()<.75)launch();last=t}
+
+for(let i=rockets.length-1;i>=0;i--){let r=rockets[i],dx=r.tx-r.x,dy=r.ty-r.y,d=Math.hypot(dx,dy);if(d<r.s+2){burst(r.x,r.y);rockets.splice(i,1);continue}r.x+=dx/d*r.s;r.y+=dy/d*r.s;ctx.beginPath();ctx.arc(r.x,r.y,2,0,Math.PI*2);ctx.fillStyle=r.c;ctx.fill()}
+
+for(let i=particles.length-1;i>=0;i--){let p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vx*=.985;p.vy=p.vy*.985+.035;p.life--;ctx.globalAlpha=Math.max(0,p.life/p.max);ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();if(p.life<=0)particles.splice(i,1)}ctx.globalAlpha=1;requestAnimationFrame(animate)}requestAnimationFrame(animate);
+
+function celebration(){for(let i=0;i<5;i++)setTimeout(()=>burst(W*(.12+Math.random()*.76),H*(.12+Math.random()*.45)),i*220)}
+
+
+const startModal=document.getElementById('startModal'),finalModal=document.getElementById('finalModal');
+const birthdayMusic=document.getElementById('birthdayMusic');
+let playing=false;
+function syncMusicButton(){document.getElementById('musicToggle').style.display='block';document.getElementById('musicToggle').textContent=playing?'Ⅱ':'♫';}
+document.getElementById('startBtn').addEventListener('click',async()=>{
+  try { await birthdayMusic.play(); playing=true; }
+  catch(err) { alert('Musik belum bisa diputar. Pastikan file musik/musik.mp3 ada dan formatnya didukung browser.'); }
+  syncMusicButton();
+  document.body.classList.remove('locked');
+  startModal.classList.add('hidden');
+  celebration();
+  document.getElementById('step1').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('musicToggle').addEventListener('click',async()=>{
+  if(birthdayMusic.paused){
+    try { await birthdayMusic.play(); playing=true; } catch(err) { alert('Musik tidak dapat diputar. Periksa file musik/musik.mp3.'); }
+  } else { birthdayMusic.pause(); playing=false; }
+  syncMusicButton();
+});
+birthdayMusic.addEventListener('play',()=>{playing=true;syncMusicButton()});
+birthdayMusic.addEventListener('pause',()=>{playing=false;syncMusicButton()});
+document.querySelectorAll('.next').forEach(btn=>btn.addEventListener('click',()=>{
+  const target=document.getElementById(btn.dataset.next);
+  if(target){target.scrollIntoView({behavior:'smooth'});celebration()}
+}));
+const bar=document.getElementById('progressBar');
+const sections=[...document.querySelectorAll('.screen')];
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){bar.style.width=((sections.indexOf(e.target)+1)/sections.length*100)+'%'}
+}),{threshold:.45});
+sections.forEach(s=>observer.observe(s));
+document.getElementById('finalOpen').addEventListener('click',()=>{finalModal.classList.remove('hidden');celebration()});
+document.getElementById('closeFinal').addEventListener('click',()=>finalModal.classList.add('hidden'));
+startModal.addEventListener('click',e=>{if(e.target===startModal){/* keep intro open until button pressed */}});
+setTimeout(()=>{if(!startModal.classList.contains('hidden'))celebration()},350);
+
+
+startModal.addEventListener('click',e=>{if(e.target===startModal){/* keep intro open until button pressed */}});
+
+setTimeout(()=>{if(!startModal.classList.contains('hidden'))celebration()},350);
+
+</script>
+
+</body>
+
+</html>
